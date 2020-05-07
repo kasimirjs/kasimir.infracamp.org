@@ -25,15 +25,6 @@ independent from any other frameworks or libraries.
 <script language="JavaScript" src="https://kasimirjs.infracamp.org/dist/v1/kasmirjs.full-min.js"></script>
 ```
 
-## Libraries
-
-- *Kasimir Templates*: Render awesome frontends with native javascript support
-
-- *Kasimir Http Request*: Do ajay requests with one line
-
-- *Kasimir Forms*: Work easy with form data
-
-- *Kasimir Tools*: Access elements with ease
 
 ## Kasimir Template
 
