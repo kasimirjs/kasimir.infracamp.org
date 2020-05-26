@@ -3,7 +3,7 @@
 fullfileDev="/opt/docs/dist/v1/kasimir.full.js"
 fullfileMin="/opt/docs/dist/v1/kasimir.full-min.js"
 
-repos=(kasimir-tpl kasimir-http-request kasimir-form)
+repos=(kasimir-tools kasimir-tpl kasimir-http-request kasimir-form)
 
 
 echo "" > $fullfileDev

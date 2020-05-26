@@ -1,0 +1,18 @@
+
+<div id="ex-ka-route-01" class="example">
+    <button onclick="KaRoute.options.state = 'A'">State = A</button>
+    <button onclick="KaRoute.options.state = 'B'">State = B</button>
+    <button onclick="KaRoute.options.state2 = 'D'">State2 = D</button>
+    <button onclick="KaRoute.options.state2 = 'E'">State2 = E</button>
+    <button onclick="KaRoute.options = {state: 'E'}">options = {state: 'val1'}</button>
+    <input type="text" id="out1">
+    <script>
+        KaRoute.onOptionChange("test", options => {
+            document.getElementById("out1").value = JSON.stringify(options);
+            // equals:   document.getElementById("out1").$data = KaRoute.options;
+        });
+        document.getElementById("out1").value = JSON.stringify(KaRoute.options);
+    </script>
+</div>
+<pre class="code"><ka-val stmt="document.getElementById('ex-ka-route-01').innerHTML" unindent auto afterrender="w3codecolor(this)"></ka-val></pre>
+

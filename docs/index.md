@@ -36,6 +36,11 @@ useful stuff to repeat, exclude, modify dom elements directly.
 <template is="ka-include" src="/ka-demo/tpl-table.html" auto></template>
 
 
+
+## Kasimir Router
+
+<template is="ka-include" src="/ka-demo/router.html" auto></template>
+
 ## Kasimir Request
 
 Use single line ajax requests with `ka_http_req(<url>, <params>)` library.
@@ -44,6 +49,6 @@ Use single line ajax requests with `ka_http_req(<url>, <params>)` library.
 
 ## Kasimir Form
 
-
-
 <template is="ka-include" src="/ka-demo/form-base.html" auto></template>
+
+
