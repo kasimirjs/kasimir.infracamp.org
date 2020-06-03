@@ -1,0 +1,4 @@
+out_dir: "../docs"
+
+repos:
+  - git@github.com:kasimirjs/kasimir-tools.git

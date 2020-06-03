@@ -1,4 +1,4 @@
 .idea
 composer.lock
 vendor/
-libs/
+jigdoc/jigdoc_repos
