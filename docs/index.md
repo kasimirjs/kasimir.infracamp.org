@@ -17,14 +17,15 @@ independent from any other frameworks or libraries.
 **Load library from infracamp (uncompressed with debugging stuff)**
 
 ```html
-<script language="JavaScript" src="https://kasimirjs.infracamp.org/dist/v1/kasmirjs.full.js"></script>
+<script language="JavaScript" src="https://kasimirjs.infracamp.org/dist/v1/kasmir.full.js"></script>
 ```
+- [Download kasimir.full.js](/dist/v1/kasimir.full.js)
 
 **Load production minified version (16kB)**
 ```html
-<script language="JavaScript" src="https://kasimirjs.infracamp.org/dist/v1/kasmirjs.full-min.js"></script>
+<script language="JavaScript" src="https://kasimirjs.infracamp.org/dist/v1/kasmir.full-min.js"></script>
 ```
-
+- [Download kasimir.full-min.js (minified)](/dist/v1/kasimir.full-min.js)
 
 ## Kasimir Template
 
