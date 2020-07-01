@@ -1,0 +1,78 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>Modal Dialog Demo - KasmimirJs</title>
+
+    <link rel="icon" href="//infracamp.org/assets/infracamp.png">
+    <meta property="og:image" content="https://infracamp.org/assets/infracamp.png" />
+
+    <link rel="stylesheet" href="/assets/all.css">
+
+</head>
+<body>
+<div style="margin: 30px;"></div>
+<div class="container container-fluid">
+    <div class="row flex-xl-nowrap">
+        <div class="col-12 col-md-12 col-lg-12 markdown-body">
+            <!-- Content -->
+
+
+            <button class="btn btn-primary" onclick="ka_tpl('modal1').$fn.open();">Open Dialog</button>
+
+
+            <template is="ka-tpl" id="modal1" debug auto>
+                <script>
+                    ((self) => {
+                        let $scope = self.scopeInit({
+                            show: false,
+
+                            /* Define methods available for external components */
+                            $fn: {
+                                open: () =>
+                                    $scope.show = true
+                            },
+
+                            /* Register event handlers to trigger bootstrap modal after rendering */
+                            $on: {
+                                onAfterRender: () =>
+                                    $($scope.$ref.modal_dialog).modal()
+                            }
+                        });
+
+                    })(KaTpl.self);
+                </script>
+                <div class="modal fade" *if="show===true" *ref="modal_dialog" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="false">
+                    <div class="modal-dialog modal-lg" role="document">
+
+                        <div class="modal-content">
+                            <div class="modal-header">
+                                <h5 class="modal-title" id="exampleModalLabel">Modal page</h5>
+                                <button type="button" [click]="$scope.show=false" class="close" data-dismiss="modal" aria-label="Close">
+                                    <span aria-hidden="true">&times;</span>
+                                </button>
+                            </div>
+                            <div class="modal-body">
+                                Content
+                            </div>
+                            <div class="modal-footer">
+                                <button type="button" class="btn btn-secondary" data-dismiss="modal" [on.click]="$scope.show=false">Close</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </template>
+
+
+
+
+            <!-- /Content -->
+        </div>
+    </div>
+</div>
+<script src="/dist/v1/kasimir.full.js"></script>
+<script src="/assets/w3codecolor.js"></script>
+<script src="/assets/js/all.js"></script>
+</body>
+</html>

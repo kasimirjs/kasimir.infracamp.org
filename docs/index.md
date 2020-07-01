@@ -52,4 +52,7 @@ Use single line ajax requests with `ka_http_req(<url>, <params>)` library.
 
 <template is="ka-include" src="/ka-demo/form-base.html" auto></template>
 
+## Examples
 
+- [Modal Dialog Popup](demo/popup-modal.html)
+- [Table with Filter](demo/table-filter.html)

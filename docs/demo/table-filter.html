@@ -1,0 +1,71 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>Table with Filter - KasmimirJs</title>
+
+    <link rel="icon" href="//infracamp.org/assets/infracamp.png">
+    <meta property="og:image" content="https://infracamp.org/assets/infracamp.png" />
+
+    <link rel="stylesheet" href="/assets/all.css">
+
+</head>
+<body>
+<div style="margin: 30px;"></div>
+<div class="container container-fluid">
+    <div class="row flex-xl-nowrap">
+        <div class="col-12 col-md-12 col-lg-12 markdown-body">
+            <!-- Content -->
+
+            <template is="ka-tpl" id="modal1" auto>
+                <script>
+                    ((self) => {
+                        let $scope = self.scopeInit({
+                            filter: '',
+                            data: [
+                                {name: "Matthias", bdate: "1234"},
+                                {name: "Bob", bdate: "1234"},
+                                {name: "Tias", bdate: "1234"},
+                            ],
+
+                            $on: {
+                                // Reset counter before each render
+                                onBeforeRender: ($scope) =>
+                                    $scope.resultCount = $scope.data.length
+                            }
+                        });
+
+                        // Add 1000 demo benchmar results
+                        for (let i = 0; i<100; i++) {
+                            $scope.data.push({name: "test" + i, bdate: "test"});
+                        }
+                    })(KaTpl.self);
+                </script>
+                <form is="ka-form" [on.change]="$scope.filter = $this.$data.filter">
+                    <input name="filter" placeholder="filter">
+                </form>
+
+                <table class="table table-striped">
+                    <tbody>
+                        <tr *for="let row of data" [hidden]="(filter.length > 1 && $this.innerText.toLowerCase().indexOf(filter.toLowerCase()) === -1) && ($scope.resultCount--)">
+                            <td>{{ row.name }}</td>
+                            <td>{{ row.bdate }}</td>
+                            <td class="text-right"><button class="btn btn-primary" [on.click]="alert(`Click: ${row.name}`)">+</button></td>
+                        </tr>
+                        <tr *if="resultCount === 0">
+                            <td>No data found</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </template>
+
+            <!-- /Content -->
+        </div>
+    </div>
+</div>
+<script src="/dist/v1/kasimir.full.js"></script>
+<script src="/assets/w3codecolor.js"></script>
+<script src="/assets/js/all.js"></script>
+</body>
+</html>
