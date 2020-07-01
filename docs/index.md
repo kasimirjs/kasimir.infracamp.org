@@ -27,6 +27,11 @@ independent from any other frameworks or libraries.
 ```
 - [Download kasimir.full-min.js (minified)](/dist/v1/kasimir.full-min.js)
 
+## Examples
+
+- [Modal Dialog Popup](demo/popup-modal.html)
+- [Table with Filter](demo/table-filter.html)
+
 ## Kasimir Template
 
 Kasimir Template library extends the dom-syntax with `*if=""`, `*for=""` and other
