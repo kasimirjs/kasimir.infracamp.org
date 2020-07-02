@@ -1,0 +1,104 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>Modal Dialog Demo - KasmimirJs</title>
+
+    <link rel="icon" href="//infracamp.org/assets/infracamp.png">
+    <meta property="og:image" content="https://infracamp.org/assets/infracamp.png" />
+    <!-- Include Bootstrap CSS -->
+    <link rel="stylesheet" href="/assets/all.css">
+
+</head>
+<body>
+<div style="margin: 30px;"></div>
+<div class="container container-fluid">
+    <div class="row flex-xl-nowrap">
+        <div class="col-12 col-md-12 col-lg-12 markdown-body">
+            <!-- Content -->
+
+            <template is="ka-tpl" id="modal1" debug auto>
+                <script>
+                    ((self) => {
+                        let $scope = self.scopeInit({
+                            show: false,
+
+                            /* Define methods available for external components */
+                            $fn: {
+                                updateInputs: (data) => {
+                                    console.log("updateInputs", data)
+                                    $scope.$ref.outForm.$data = {out: JSON.stringify(data)};
+                                },
+                                updateOut: (str) => {
+                                    console.log("updateOut", str)
+                                    $scope.$ref.inputs.$data = JSON.parse(str);
+                                }
+
+                            },
+
+                        });
+
+                    })(KaTpl.self);
+                </script>
+                <form is="ka-form" *ref="outForm" [on.change]="$fn.updateOut($this.$data.out)">
+                    <input name="out" class="form-control form-control-lg" type="text" placeholder="">
+                    <small id="emailHelp" class="form-text text-muted mb-3">You can edit here as well.</small>
+                </form>
+
+                    <div class="card">
+                        <div class="card-body">
+                            <form is="ka-form" *ref="inputs" [on.change]="$fn.updateInputs($this.$data)">
+                            <div class="form-row">
+                                <div class="col">
+                                    <input name="name" type="text" class="form-control" placeholder="First name">
+                                </div>
+                                <div class="col">
+                                    <select is="ka-select" name="select" init="this.$options = ['a', 'b', 'c']" class="form-control"></select>
+                                </div>
+                            </div>
+
+                            <div class="form-group form-check">
+                                <input type="checkbox" name="check1" value="val1" class="form-check-input" id="exampleCheck1">
+                                <label class="form-check-label" for="exampleCheck1">Check me out</label>
+                            </div>
+                            <div class="form-group row">
+                                <fieldset class="form-group">
+                                    <div class="row">
+                                        <legend class="col-form-label col-sm-2 pt-0">Radios</legend>
+                                        <div class="col-sm-10">
+                                            <div class="form-check">
+                                                <input class="form-check-input" type="radio" name="gridRadios" id="gridRadios1" value="option1">
+                                                <label class="form-check-label" for="gridRadios1">
+                                                    First radio
+                                                </label>
+                                            </div>
+                                            <div class="form-check">
+                                                <input class="form-check-input" type="radio" name="gridRadios" id="gridRadios2" value="option2">
+                                                <label class="form-check-label" for="gridRadios2">
+                                                    Second radio
+                                                </label>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </fieldset>
+                            </div>
+                            </form>
+                        </div>
+                    </div>
+
+            </template>
+
+
+            <!-- /Content -->
+        </div>
+    </div>
+</div>
+
+<!-- This is the only kasimir file required -->
+<script src="/dist/v1/kasimir.full.js"></script>
+
+<!-- Include Bootstrap JS -->
+<script src="/assets/js/all.js"></script>
+</body>
+</html>
