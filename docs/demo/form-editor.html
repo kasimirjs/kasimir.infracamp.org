@@ -24,15 +24,29 @@
                         let $scope = self.scopeInit({
                             show: false,
 
+                            tableIdx: 1,
+
                             /* Define methods available for external components */
                             $fn: {
+                                adjustTable: (data) => {
+                                    let count = 1;
+                                    for (let row in data.names) {
+                                        if (row !== "")
+                                            count++;
+                                    }
+                                    $scope.tableIdx = count;
+                                    self.render()
+                                },
                                 updateInputs: (data) => {
                                     console.log("updateInputs", data)
                                     $scope.$ref.outForm.$data = {out: JSON.stringify(data)};
                                 },
                                 updateOut: (str) => {
                                     console.log("updateOut", str)
-                                    $scope.$ref.inputs.$data = JSON.parse(str);
+                                    let data = JSON.parse(str);
+                                    $scope.$fn.adjustTable();
+
+                                    $scope.$ref.inputs.$data =
                                 }
 
                             },
@@ -83,9 +97,26 @@
                                     </div>
                                 </fieldset>
                             </div>
-                            </form>
-                        </div>
+
+                            <table>
+                                <tbody>
+                                    <tr *for="let idx repeat tableIdx">
+                                        <td><input type="text" name="names[]"></td>
+                                        <td><select is="ka-select" name="aggrs[]" init="this.$options = ['first', 'avg', 'last']"></select></td>
+                                        <td>
+                                            <button class="btn">-</button>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td colspan="3">
+                                            <button class="btn btn-secondary" [on.click]="$scope.tableIdx++">+</button>
+                                        </td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </form>
                     </div>
+                </div>
 
             </template>
 
