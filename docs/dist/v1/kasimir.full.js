@@ -667,6 +667,7 @@ class KaInclude extends KtRenderable {
             "raw": null,
             "debug": false
         }
+        this.setAttribute("is", "ka-include")
     }
 
     static get observedAttributes() {
@@ -775,6 +776,7 @@ class KaLoop extends KtRenderable {
             "foreval": null
         }
         this._els = [];
+        this.setAttribute("is", "ka-loop");
     }
 
     static get observedAttributes() {
@@ -907,7 +909,7 @@ class KaTpl extends KtRenderable {
         this._on = {};
         this._fn = {};
         this._scope = {"$ref":this._refs, "$on": this._on, "$fn": this._fn};
-
+        this.setAttribute('is', 'ka-tpl');
         this.__debounceTimeout = null;
         this._handler = {};
     }
@@ -1259,6 +1261,8 @@ class KtIf extends KtRenderable {
         this._attrs = {
             "stmt": null
         }
+        this.setAttribute('is', 'ka-if');
+
     }
 
     static get observedAttributes() {
@@ -1294,6 +1298,7 @@ class KtMaintain extends KtRenderable {
             "stmt": null,
             "debug": false
         }
+        this.setAttribute("is", "kt-maintain");
     }
 
     static get observedAttributes() {
