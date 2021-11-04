@@ -1261,7 +1261,7 @@ class KtIf extends KtRenderable {
         this._attrs = {
             "stmt": null
         }
-        this.setAttribute('is', 'ka-if');
+        this.setAttribute('is', 'kt-if');
 
     }
 
