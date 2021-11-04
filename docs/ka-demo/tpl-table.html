@@ -25,14 +25,7 @@
     <button onclick="ka_tpl('tplTable01').$scope.names.push({name: 'new', surname:'new'})" class="btn btn-primary">Push</button>
     <button onclick="ka_tpl('tplTable01').$scope.names.pop()" class="btn btn-primary">Pop</button>
     <script>
-        window.setTimeout(() => {
-            ka_tpl('tplTable01').$scope = {
-                names: [
-                    {name: "alfed", surname: "wasigno"},
-                    {name: "manni", surname: "gemini"}
-                ]
-            }
-        }, 1000);
+
     </script>
 </div>
 <pre class="code"><ka-val stmt="document.getElementById('ex-ka-tpl-01').innerHTML" unindent auto afterrender="w3codecolor(this)"></ka-val></pre>
