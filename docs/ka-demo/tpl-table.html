@@ -1,6 +1,15 @@
 
 <div id="ex-ka-tpl-01" class="example">
     <template is="ka-tpl" id="tplTable01">
+        <script>
+            ((self) => {
+                let $scope = self.scopeInit({
+                    names: [
+                        {name: "alfed", surname: "wasigno"},
+                    ]
+                })
+            })(KaTpl.self);
+        </script>
         <table class="table table-bordered">
             <tbody>
                 <tr *if="names.length === 0">
@@ -23,7 +32,7 @@
                     {name: "manni", surname: "gemini"}
                 ]
             }
-        }, 100);
+        }, 1000);
     </script>
 </div>
 <pre class="code"><ka-val stmt="document.getElementById('ex-ka-tpl-01').innerHTML" unindent auto afterrender="w3codecolor(this)"></ka-val></pre>
