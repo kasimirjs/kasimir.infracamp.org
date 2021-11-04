@@ -1,17 +1,7 @@
 
 <div id="ex-ka-tpl-01" class="example">
-    <template is="ka-tpl" id="tplTable01" debug auto>
-        <script>
-            ((self) => {
-                let $scope = self.scopeInit({
-                    names: [
-                        {name: "alfed", surname: "wasigno"},
-                    ]
-                });
-                console.log (self);
-                self.render($scope);
-            })(KaTpl.self);
-        </script>
+    <template is="ka-tpl" id="tplTable01">
+
         <table class="table table-bordered">
             <tbody>
                 <tr *if="names.length === 0">
@@ -27,7 +17,14 @@
     <button onclick="ka_tpl('tplTable01').$scope.names.push({name: 'new', surname:'new'})" class="btn btn-primary">Push</button>
     <button onclick="ka_tpl('tplTable01').$scope.names.pop()" class="btn btn-primary">Pop</button>
     <script>
-
+        window.setTimeout(() => {
+            ka_tpl('tplTable01').$scope = {
+                names: [
+                    {name: "alfed", surname: "wasigno"},
+                    {name: "manni", surname: "gemini"}
+                ]
+            }
+        }, 1000);
     </script>
 </div>
 <pre class="code"><ka-val stmt="document.getElementById('ex-ka-tpl-01').innerHTML" unindent auto afterrender="w3codecolor(this)"></ka-val></pre>
