@@ -30,6 +30,7 @@ independent from any other frameworks or libraries.
 ## Examples
 
 - [Modal Dialog Popup](demo/popup-modal.html)
+- [Multiple Modal on one page](demo/multiple-modals.html)
 - [Table with Filter](demo/table-filter.html)
 - [Form Editor](demo/form-editor.html)
 
