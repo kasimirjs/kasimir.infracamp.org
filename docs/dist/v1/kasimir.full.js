@@ -1074,7 +1074,7 @@ class KaTpl extends KtRenderable {
         if (typeof $scope.$on !== "undefined")
             this._on = $scope.$on;
 
-        this.$scope = $scope;
+        this._scope = $scope;
 
         return this.$scope; // <- Query scope over getter to receive proxy
     }
