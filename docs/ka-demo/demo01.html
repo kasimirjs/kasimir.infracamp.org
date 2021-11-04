@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+
+    <script src="https://unpkg.com/@webcomponents/webcomponentsjs/webcomponents-loader.js"></script>
+
+</head>
+<body>
+<template is="x-test">Some data</template>
+<script>
+
+    console.log("Loaded");
+    class Test extends HTMLTemplateElement {
+
+        connectedCallback() {
+            console.log("Connected!");
+            let e = document.createElement("p");
+            e.textContent = "Ready!"
+            this.parentElement.appendChild(e)
+        }
+    }
+
+    customElements.define("x-test", Test, {extends: "template"});
+
+</script>
+
+</body>
+</html>
